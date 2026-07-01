@@ -1,9 +1,9 @@
 {
   "name": "Panini Leonis",
   "short_name": "Panini",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=3",
   "display": "standalone",
-  "background_color": "#f5f7fb",
+  "background_color": "#f4f7fb",
   "theme_color": "#0f172a",
   "icons": []
 }
