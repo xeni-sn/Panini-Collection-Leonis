@@ -1,192 +1,50 @@
 
-const INITIAL_MISSING = [{"code": "MEX", "flag": "🇲🇽", "name": "Mexico", "num": "alle", "label": "Alle fehlen"}, {"code": "RSA", "flag": "🇿🇦", "name": "South Africa", "num": "alle", "label": "Alle fehlen"}, {"code": "KOR", "flag": "🇰🇷", "name": "South Korea", "num": "15", "label": "Nr. 15"}, {"code": "CZE", "flag": "🇨🇿", "name": "Czechia", "num": "19", "label": "Nr. 19"}, {"code": "CAN", "flag": "🇨🇦", "name": "Canada", "num": "7", "label": "Nr. 7"}, {"code": "BIH", "flag": "🇧🇦", "name": "Bosnia", "num": "alle", "label": "Alle fehlen"}, {"code": "QAT", "flag": "🇶🇦", "name": "Qatar", "num": "alle", "label": "Alle fehlen"}, {"code": "SUI", "flag": "🇨🇭", "name": "Switzerland", "num": "alle", "label": "Alle fehlen"}, {"code": "BRA", "flag": "🇧🇷", "name": "Brazil", "num": "11", "label": "Nr. 11"}, {"code": "BRA", "flag": "🇧🇷", "name": "Brazil", "num": "20", "label": "Nr. 20"}, {"code": "MAR", "flag": "🇲🇦", "name": "Morocco", "num": "11", "label": "Nr. 11"}, {"code": "HAI", "flag": "🇭🇹", "name": "Haiti", "num": "alle", "label": "Alle fehlen"}, {"code": "SCO", "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "name": "Scotland", "num": "alle", "label": "Alle fehlen"}, {"code": "USA", "flag": "🇺🇸", "name": "USA", "num": "alle", "label": "Alle fehlen"}, {"code": "PAR", "flag": "🇵🇾", "name": "Paraguay", "num": "8", "label": "Nr. 8"}, {"code": "PAR", "flag": "🇵🇾", "name": "Paraguay", "num": "13", "label": "Nr. 13"}, {"code": "AUS", "flag": "🇦🇺", "name": "Australia", "num": "5", "label": "Nr. 5"}, {"code": "TUR", "flag": "🇹🇷", "name": "Turkey", "num": "alle", "label": "Alle fehlen"}, {"code": "GER", "flag": "🇩🇪", "name": "Germany", "num": "19", "label": "Nr. 19"}, {"code": "CUW", "flag": "🇨🇼", "name": "Curaçao", "num": "12", "label": "Nr. 12"}, {"code": "CUW", "flag": "🇨🇼", "name": "Curaçao", "num": "19", "label": "Nr. 19"}, {"code": "CIV", "flag": "🇨🇮", "name": "Ivory Coast", "num": "alle", "label": "Alle fehlen"}, {"code": "ECU", "flag": "🇪🇨", "name": "Ecuador", "num": "4", "label": "Nr. 4"}, {"code": "ECU", "flag": "🇪🇨", "name": "Ecuador", "num": "9", "label": "Nr. 9"}, {"code": "NED", "flag": "🇳🇱", "name": "Netherlands", "num": "9", "label": "Nr. 9"}, {"code": "NED", "flag": "🇳🇱", "name": "Netherlands", "num": "14", "label": "Nr. 14"}, {"code": "JPN", "flag": "🇯🇵", "name": "Japan", "num": "6", "label": "Nr. 6"}, {"code": "JPN", "flag": "🇯🇵", "name": "Japan", "num": "12", "label": "Nr. 12"}, {"code": "SWE", "flag": "🇸🇪", "name": "Sweden", "num": "3", "label": "Nr. 3"}, {"code": "SWE", "flag": "🇸🇪", "name": "Sweden", "num": "18", "label": "Nr. 18"}, {"code": "TUN", "flag": "🇹🇳", "name": "Tunisia", "num": "alle", "label": "Alle fehlen"}, {"code": "BEL", "flag": "🇧🇪", "name": "Belgium", "num": "alle", "label": "Alle fehlen"}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "num": "6", "label": "Nr. 6"}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "num": "12", "label": "Nr. 12"}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "num": "17", "label": "Nr. 17"}, {"code": "IRN", "flag": "🇮🇷", "name": "Iran", "num": "alle", "label": "Alle fehlen"}, {"code": "NZL", "flag": "🇳🇿", "name": "New Zealand", "num": "6", "label": "Nr. 6"}, {"code": "NZL", "flag": "🇳🇿", "name": "New Zealand", "num": "15", "label": "Nr. 15"}, {"code": "ESP", "flag": "🇪🇸", "name": "Spain", "num": "2", "label": "Nr. 2"}, {"code": "ESP", "flag": "🇪🇸", "name": "Spain", "num": "6", "label": "Nr. 6"}, {"code": "CPV", "flag": "🇨🇻", "name": "Cape Verde", "num": "alle", "label": "Alle fehlen"}, {"code": "KSA", "flag": "🇸🇦", "name": "Saudi Arabia", "num": "16", "label": "Nr. 16"}, {"code": "URU", "flag": "🇺🇾", "name": "Uruguay", "num": "alle", "label": "Alle fehlen"}, {"code": "FRA", "flag": "🇫🇷", "name": "France", "num": "alle", "label": "Alle fehlen"}, {"code": "SEN", "flag": "🇸🇳", "name": "Senegal", "num": "alle", "label": "Alle fehlen"}, {"code": "IRQ", "flag": "🇮🇶", "name": "Iraq", "num": "10", "label": "Nr. 10"}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "num": "12", "label": "Nr. 12"}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "num": "16", "label": "Nr. 16"}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "num": "18", "label": "Nr. 18"}, {"code": "ARG", "flag": "🇦🇷", "name": "Argentina", "num": "6", "label": "Nr. 6"}, {"code": "ALG", "flag": "🇩🇿", "name": "Algeria", "num": "13", "label": "Nr. 13"}, {"code": "AUT", "flag": "🇦🇹", "name": "Austria", "num": "3", "label": "Nr. 3"}, {"code": "AUT", "flag": "🇦🇹", "name": "Austria", "num": "5", "label": "Nr. 5"}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "num": "6", "label": "Nr. 6"}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "num": "15", "label": "Nr. 15"}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "num": "20", "label": "Nr. 20"}, {"code": "POR", "flag": "🇵🇹", "name": "Portugal", "num": "alle", "label": "Alle fehlen"}, {"code": "COD", "flag": "🇨🇩", "name": "DR Congo", "num": "alle", "label": "Alle fehlen"}, {"code": "UZB", "flag": "🇺🇿", "name": "Uzbekistan", "num": "8", "label": "Nr. 8"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "2", "label": "Nr. 2"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "5", "label": "Nr. 5"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "10", "label": "Nr. 10"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "19", "label": "Nr. 19"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "20", "label": "Nr. 20"}, {"code": "ENG", "flag": "🏴", "name": "England", "num": "15", "label": "Nr. 15"}, {"code": "ENG", "flag": "🏴", "name": "England", "num": "18", "label": "Nr. 18"}, {"code": "CRO", "flag": "🇭🇷", "name": "Croatia", "num": "19", "label": "Nr. 19"}, {"code": "GHA", "flag": "🇬🇭", "name": "Ghana", "num": "10", "label": "Nr. 10"}, {"code": "PAN", "flag": "🇵🇦", "name": "Panama", "num": "3", "label": "Nr. 3"}, {"code": "FWC", "flag": "🏆", "name": "FWC", "num": "17", "label": "Nr. 17"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "3", "label": "Nr. 3"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "4", "label": "Nr. 4"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "7", "label": "Nr. 7"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "9", "label": "Nr. 9"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "10", "label": "Nr. 10"}];
-const LS_DONE = "panini_leonis_done_v4";
-const LS_DUPS = "panini_leonis_dups_v4";
-const LS_THEME = "panini_leonis_theme_v4";
+const MISSING=[{"code": "KOR", "flag": "🇰🇷", "name": "South Korea", "num": "15"}, {"code": "CZE", "flag": "🇨🇿", "name": "Czechia", "num": "19"}, {"code": "CAN", "flag": "🇨🇦", "name": "Canada", "num": "7"}, {"code": "BRA", "flag": "🇧🇷", "name": "Brazil", "num": "11"}, {"code": "BRA", "flag": "🇧🇷", "name": "Brazil", "num": "20"}, {"code": "MAR", "flag": "🇲🇦", "name": "Morocco", "num": "11"}, {"code": "PAR", "flag": "🇵🇾", "name": "Paraguay", "num": "8"}, {"code": "PAR", "flag": "🇵🇾", "name": "Paraguay", "num": "13"}, {"code": "AUS", "flag": "🇦🇺", "name": "Australia", "num": "5"}, {"code": "GER", "flag": "🇩🇪", "name": "Germany", "num": "19"}, {"code": "CUW", "flag": "🇨🇼", "name": "Curaçao", "num": "12"}, {"code": "CUW", "flag": "🇨🇼", "name": "Curaçao", "num": "19"}, {"code": "ECU", "flag": "🇪🇨", "name": "Ecuador", "num": "4"}, {"code": "ECU", "flag": "🇪🇨", "name": "Ecuador", "num": "9"}, {"code": "NED", "flag": "🇳🇱", "name": "Netherlands", "num": "9"}, {"code": "NED", "flag": "🇳🇱", "name": "Netherlands", "num": "14"}, {"code": "JPN", "flag": "🇯🇵", "name": "Japan", "num": "6"}, {"code": "JPN", "flag": "🇯🇵", "name": "Japan", "num": "12"}, {"code": "SWE", "flag": "🇸🇪", "name": "Sweden", "num": "3"}, {"code": "SWE", "flag": "🇸🇪", "name": "Sweden", "num": "18"}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "num": "6"}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "num": "12"}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "num": "17"}, {"code": "NZL", "flag": "🇳🇿", "name": "New Zealand", "num": "6"}, {"code": "NZL", "flag": "🇳🇿", "name": "New Zealand", "num": "15"}, {"code": "ESP", "flag": "🇪🇸", "name": "Spain", "num": "2"}, {"code": "ESP", "flag": "🇪🇸", "name": "Spain", "num": "6"}, {"code": "KSA", "flag": "🇸🇦", "name": "Saudi Arabia", "num": "16"}, {"code": "IRQ", "flag": "🇮🇶", "name": "Iraq", "num": "10"}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "num": "12"}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "num": "16"}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "num": "18"}, {"code": "ARG", "flag": "🇦🇷", "name": "Argentina", "num": "6"}, {"code": "ALG", "flag": "🇩🇿", "name": "Algeria", "num": "13"}, {"code": "AUT", "flag": "🇦🇹", "name": "Austria", "num": "3"}, {"code": "AUT", "flag": "🇦🇹", "name": "Austria", "num": "5"}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "num": "6"}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "num": "15"}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "num": "20"}, {"code": "UZB", "flag": "🇺🇿", "name": "Uzbekistan", "num": "8"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "2"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "5"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "10"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "19"}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "num": "20"}, {"code": "ENG", "flag": "🏴", "name": "England", "num": "15"}, {"code": "ENG", "flag": "🏴", "name": "England", "num": "18"}, {"code": "CRO", "flag": "🇭🇷", "name": "Croatia", "num": "19"}, {"code": "GHA", "flag": "🇬🇭", "name": "Ghana", "num": "10"}, {"code": "PAN", "flag": "🇵🇦", "name": "Panama", "num": "3"}, {"code": "FWC", "flag": "🏆", "name": "FWC", "num": "17"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "3"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "4"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "7"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "9"}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "num": "10"}];
+const TEAMS=[{"code": "KOR", "flag": "🇰🇷", "name": "South Korea", "missing": ["15"]}, {"code": "CZE", "flag": "🇨🇿", "name": "Czechia", "missing": ["19"]}, {"code": "CAN", "flag": "🇨🇦", "name": "Canada", "missing": ["7"]}, {"code": "BRA", "flag": "🇧🇷", "name": "Brazil", "missing": ["11", "20"]}, {"code": "MAR", "flag": "🇲🇦", "name": "Morocco", "missing": ["11"]}, {"code": "PAR", "flag": "🇵🇾", "name": "Paraguay", "missing": ["8", "13"]}, {"code": "AUS", "flag": "🇦🇺", "name": "Australia", "missing": ["5"]}, {"code": "GER", "flag": "🇩🇪", "name": "Germany", "missing": ["19"]}, {"code": "CUW", "flag": "🇨🇼", "name": "Curaçao", "missing": ["12", "19"]}, {"code": "ECU", "flag": "🇪🇨", "name": "Ecuador", "missing": ["4", "9"]}, {"code": "NED", "flag": "🇳🇱", "name": "Netherlands", "missing": ["9", "14"]}, {"code": "JPN", "flag": "🇯🇵", "name": "Japan", "missing": ["6", "12"]}, {"code": "SWE", "flag": "🇸🇪", "name": "Sweden", "missing": ["3", "18"]}, {"code": "EGY", "flag": "🇪🇬", "name": "Egypt", "missing": ["6", "12", "17"]}, {"code": "NZL", "flag": "🇳🇿", "name": "New Zealand", "missing": ["6", "15"]}, {"code": "ESP", "flag": "🇪🇸", "name": "Spain", "missing": ["2", "6"]}, {"code": "KSA", "flag": "🇸🇦", "name": "Saudi Arabia", "missing": ["16"]}, {"code": "IRQ", "flag": "🇮🇶", "name": "Iraq", "missing": ["10"]}, {"code": "NOR", "flag": "🇳🇴", "name": "Norway", "missing": ["12", "16", "18"]}, {"code": "ARG", "flag": "🇦🇷", "name": "Argentina", "missing": ["6"]}, {"code": "ALG", "flag": "🇩🇿", "name": "Algeria", "missing": ["13"]}, {"code": "AUT", "flag": "🇦🇹", "name": "Austria", "missing": ["3", "5"]}, {"code": "JOR", "flag": "🇯🇴", "name": "Jordan", "missing": ["6", "15", "20"]}, {"code": "UZB", "flag": "🇺🇿", "name": "Uzbekistan", "missing": ["8"]}, {"code": "COL", "flag": "🇨🇴", "name": "Colombia", "missing": ["2", "5", "10", "19", "20"]}, {"code": "ENG", "flag": "🏴", "name": "England", "missing": ["15", "18"]}, {"code": "CRO", "flag": "🇭🇷", "name": "Croatia", "missing": ["19"]}, {"code": "GHA", "flag": "🇬🇭", "name": "Ghana", "missing": ["10"]}, {"code": "PAN", "flag": "🇵🇦", "name": "Panama", "missing": ["3"]}, {"code": "FWC", "flag": "🏆", "name": "FWC", "missing": ["17"]}, {"code": "CC", "flag": "🥤", "name": "Coca-Cola", "missing": ["3", "4", "7", "9", "10"]}];
+const LS_DONE='pl_done_v2', LS_DUP='pl_dup_v2';
+let view='dashboard';
+const $=id=>document.getElementById(id);
+const done=()=>JSON.parse(localStorage.getItem(LS_DONE)||'{}');
+const setDone=x=>localStorage.setItem(LS_DONE,JSON.stringify(x));
+const dups=()=>JSON.parse(localStorage.getItem(LS_DUP)||'[]');
+const setDups=x=>localStorage.setItem(LS_DUP,JSON.stringify(x));
+const key=x=>x.code+'-'+x.num;
 
-let tab = "missing";
+function toast(s){let t=$('toast');t.textContent=s;t.className='show';setTimeout(()=>t.className='',1300)}
+function calcStats(){let d=done(),dc=MISSING.filter(x=>d[key(x)]).length,dup=dups().reduce((s,x)=>s+Number(x.qty||0),0);return {total:MISSING.length,done:dc,open:MISSING.length-dc,dup,pct:Math.round(dc/MISSING.length*100)}}
+function setView(v){view=v;render()}
+function toggle(code,num){let d=done(),k=code+'-'+num;d[k]=!d[k];setDone(d);toast(d[k]?'Erledigt ✅':'Wieder offen');if(d[k])checkTeamComplete(code);render()}
+function checkTeamComplete(code){let d=done(),team=TEAMS.find(t=>t.code===code);if(team&&team.missing.every(n=>d[code+'-'+n]))confetti(team.flag+' '+code+' komplett!')}
+function confetti(msg){toast(msg);let c=document.createElement('div');c.className='confetti';c.innerHTML=Array.from({length:26},(_,i)=>`<span class="piece" style="left:${Math.random()*100}%;top:-30px;animation-delay:${Math.random()*.25}s">${['🎉','⭐','🔥','⚽️','🏆'][i%5]}</span>`).join('');document.body.appendChild(c);setTimeout(()=>c.remove(),1500)}
+function shell(content){let s=calcStats();$('app').innerHTML=`<main class="app">
+<section class="hero"><div class="heroTop"><div><h1>Panini Leonis</h1><p>Die bessere Sammel- und Tauschliste</p></div><div class="bigPct">${s.pct}%</div></div><div class="barBg"><div class="bar" style="width:${s.pct}%"></div></div></section>
+<section class="stats"><div class="stat"><b>${s.open}</b><span>offen</span></div><div class="stat"><b>${s.done}</b><span>erledigt</span></div><div class="stat"><b>${s.total}</b><span>total</span></div><div class="stat"><b>${s.dup}</b><span>doppelte</span></div></section>
+<nav class="tabs">${['dashboard','missing','teams','dups','trade'].map(v=>`<button class="tab ${view===v?'on':''}" onclick="setView('${v}')">${{dashboard:'Home',missing:'Fehlend',teams:'Teams',dups:'Doppelt',trade:'Tausch'}[v]}</button>`).join('')}</nav>
+${content}</main><div class="bottom"><button class="btn grey" onclick="shareList()">Teilen</button><button class="btn grey" onclick="setView('settings')">Mehr</button></div>`}
 
-const $ = (id) => document.getElementById(id);
-const keyOf = (x) => `${x.code}-${x.num}`;
-const getDone = () => JSON.parse(localStorage.getItem(LS_DONE) || "{}");
-const setDone = (v) => localStorage.setItem(LS_DONE, JSON.stringify(v));
-const getDups = () => JSON.parse(localStorage.getItem(LS_DUPS) || "[]");
-const setDups = (v) => localStorage.setItem(LS_DUPS, JSON.stringify(v));
+function renderDashboard(){let d=done();let almost=TEAMS.map(t=>({...t,left:t.missing.filter(n=>!d[t.code+'-'+n]).length})).sort((a,b)=>a.left-b.left).slice(0,6);
+shell(`<div class="panel"><h2>Fast komplett</h2><div class="teamGrid">${almost.map(t=>`<div class="card teamCard"><div class="teamHead"><div class="teamTitle"><span class="flag">${t.flag}</span><div><b>${t.code}</b><br><small class="note">${t.name}</small></div></div><span class="pill">${t.left} offen</span></div></div>`).join('')}</div></div>
+<div class="panel"><h2>Schnell prüfen / abhaken</h2><div class="grid2"><input id="quickCode" placeholder="Land, z.B. BRA" autocapitalize="characters"><input id="quickNum" placeholder="Nr." inputmode="numeric"><button class="btn full" onclick="quickCheck()">Prüfen / abhaken</button></div><div id="quickResult" class="result">Sticker eingeben.</div></div>`)}
+function quickCheck(){let code=$('quickCode').value.trim().toUpperCase(),num=$('quickNum').value.trim();let x=MISSING.find(a=>a.code===code&&a.num===num);if(!x)return $('quickResult').textContent='❌ Nicht in der Fehlliste.';let d=done(); if(d[key(x)]) $('quickResult').textContent='✅ Schon erledigt.'; else {toggle(code,num);$('quickResult').textContent='🔥 Fehlte noch – jetzt abgehakt.'}}
 
-function toast(msg) {
-  $("toast").textContent = msg;
-  $("toast").classList.add("show");
-  setTimeout(() => $("toast").classList.remove("show"), 1300);
-}
+function renderMissing(){let q=(sessionStorage.qMissing||'').toLowerCase(),f=sessionStorage.fMissing||'open',d=done();let arr=MISSING.filter(x=>{let is=!!d[key(x)],txt=(x.code+' '+x.name+' '+x.num).toLowerCase();return(!q||txt.includes(q))&&(f==='all'||(f==='open'&&!is)||(f==='done'&&is))});
+shell(`<div class="toolbar"><input placeholder="Suchen..." value="${sessionStorage.qMissing||''}" oninput="sessionStorage.qMissing=this.value;renderMissing()"><select onchange="sessionStorage.fMissing=this.value;renderMissing()"><option value="open" ${f==='open'?'selected':''}>Offen</option><option value="all" ${f==='all'?'selected':''}>Alle</option><option value="done" ${f==='done'?'selected':''}>Erledigt</option></select></div><div class="list">${arr.map(x=>sticker(x,d[key(x)])).join('')||'<div class="empty">Nichts gefunden.</div>'}</div>`)}
+function sticker(x,is){return `<button class="sticker ${is?'done':''}" onclick="toggle('${x.code}','${x.num}')"><span class="flag">${x.flag}</span><span class="info"><b>${x.code} · Nr. ${x.num}</b><small>${x.name}</small></span><span class="pill">${is?'erledigt':'offen'}</span></button>`}
 
-function setTab(next) {
-  tab = next;
-  document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
-  $(`tab-${next}`).classList.add("active");
-  ["missing","dups","trade","settings"].forEach(v => $(`view-${v}`).classList.toggle("hidden", v !== next));
-  renderAll();
-}
+function renderTeams(){let d=done();shell(`<div class="teamGrid">${TEAMS.map(t=>`<div class="card teamCard"><div class="teamHead"><div class="teamTitle"><span class="flag">${t.flag}</span><div><b>${t.code}</b><br><small class="note">${t.name}</small></div></div><span class="pill">${t.missing.filter(n=>!d[t.code+'-'+n]).length} offen</span></div><div class="chips">${t.missing.map(n=>`<button class="chip ${d[t.code+'-'+n]?'done':''}" onclick="toggle('${t.code}','${n}')">${n}</button>`).join('')}</div></div>`).join('')}</div>`)}
 
-function toggleMissing(k) {
-  const done = getDone();
-  done[k] = !done[k];
-  setDone(done);
-  renderAll();
-  toast(done[k] ? "Erledigt ✅" : "Wieder offen");
-}
+function addDup(){let code=$('dupCode').value.trim().toUpperCase(),num=$('dupNum').value.trim(),note=$('dupNote').value.trim();if(!code||!num)return toast('Land und Nummer eingeben');let m=TEAMS.find(t=>t.code===code)||{flag:'🏷️',name:code},a=dups(),e=a.find(x=>x.code===code&&x.num===num&&x.note===note); if(e)e.qty++;else a.push({code,num,note,qty:1,flag:m.flag,name:m.name});setDups(a);renderDups();toast('Doppelter gespeichert')}
+function chDup(i,delta){let a=dups();a[i].qty+=delta;if(a[i].qty<=0)a.splice(i,1);setDups(a);renderDups()}
+function renderDups(){let a=dups().map((x,i)=>({...x,i}));shell(`<div class="panel"><h2>Doppelten hinzufügen</h2><div class="grid2"><input id="dupCode" placeholder="Land" autocapitalize="characters"><input id="dupNum" placeholder="Nr." inputmode="numeric"><input id="dupNote" class="full" placeholder="Notiz optional"><button class="btn full" onclick="addDup()">Hinzufügen</button></div></div><div class="list">${a.map(x=>`<div class="card dup"><div class="dupLeft"><span class="flag">${x.flag}</span><div><b>${x.code} · Nr. ${x.num}</b><small>${x.note||x.name}</small></div></div><div class="qty"><button onclick="chDup(${x.i},-1)">−</button><strong>${x.qty}</strong><button onclick="chDup(${x.i},1)">+</button></div></div>`).join('')||'<div class="empty">Noch keine doppelten Sticker.</div>'}</div>`)}
 
-function renderMissing() {
-  const done = getDone();
-  const q = $("missingSearch").value.trim().toLowerCase();
-  const f = $("missingFilter").value;
-  const list = $("missingList");
+function renderTrade(){shell(`<div class="panel"><h2>Tausch-Check</h2><p class="note">Prüft sofort, ob ein angebotener Sticker fehlt.</p><div class="grid2"><input id="tradeCode" placeholder="Land, z.B. BRA" autocapitalize="characters"><input id="tradeNum" placeholder="Nr., z.B. 11" inputmode="numeric"><button class="btn full" onclick="tradeCheck()">Prüfen</button></div><div id="tradeResult" class="result">Sticker eingeben.</div></div>`)}
+function tradeCheck(){let code=$('tradeCode').value.trim().toUpperCase(),num=$('tradeNum').value.trim(),x=MISSING.find(a=>a.code===code&&a.num===num),d=done();$('tradeResult').textContent=!x?'❌ Fehlt nicht auf deiner Liste.':d[key(x)]?'✅ War fehlend, ist aber schon erledigt.':'🔥 Ja! Fehlt noch. Tauschen!'}
 
-  const arr = INITIAL_MISSING.filter(x => {
-    const isDone = !!done[keyOf(x)];
-    const text = `${x.code} ${x.name} ${x.num} ${x.label}`.toLowerCase();
-    return (!q || text.includes(q)) && (f === "all" || (f === "open" && !isDone) || (f === "done" && isDone));
-  });
-
-  list.innerHTML = arr.length ? arr.map(x => {
-    const k = keyOf(x);
-    const isDone = !!done[k];
-    return `<button class="sticker-card ${isDone ? "done" : ""}" onclick="toggleMissing('${k}')">
-      <span class="flag">${x.flag}</span>
-      <span class="info"><b>${x.code}</b><small>${x.name} · ${x.label}</small></span>
-      <span class="pill">${isDone ? "erledigt" : "offen"}</span>
-    </button>`;
-  }).join("") : `<div class="empty">Nichts gefunden.</div>`;
-}
-
-function addDup() {
-  const code = $("dupCode").value.trim().toUpperCase();
-  const num = $("dupNum").value.trim();
-  const note = $("dupNote").value.trim();
-  if (!code || !num) return toast("Land und Nummer eingeben");
-  const flag = (INITIAL_MISSING.find(x => x.code === code) || {flag:"🏷️", name: code}).flag;
-  const name = (INITIAL_MISSING.find(x => x.code === code) || {name: code}).name;
-  const dups = getDups();
-  const existing = dups.find(x => x.code === code && x.num === num && (x.note || "") === note);
-  if (existing) existing.qty++;
-  else dups.push({code, num, note, qty: 1, flag, name});
-  setDups(dups);
-  $("dupCode").value = ""; $("dupNum").value = ""; $("dupNote").value = "";
-  renderAll();
-  toast("Doppelter gespeichert");
-}
-
-function changeDupQty(i, delta) {
-  const dups = getDups();
-  dups[i].qty += delta;
-  if (dups[i].qty <= 0) dups.splice(i, 1);
-  setDups(dups);
-  renderAll();
-}
-
-function renderDups() {
-  const q = $("dupSearch").value.trim().toLowerCase();
-  const sort = $("dupSort").value;
-  let dups = getDups().map((x,i) => ({...x, i}));
-  dups = dups.filter(x => !q || `${x.code} ${x.num} ${x.note||""} ${x.name||""}`.toLowerCase().includes(q));
-  dups.sort(sort === "qty" ? (a,b) => b.qty - a.qty || a.code.localeCompare(b.code) : (a,b) => a.code.localeCompare(b.code) || Number(a.num)-Number(b.num));
-  $("dupsList").innerHTML = dups.length ? dups.map(x => `<div class="dup-card">
-    <div class="dup-left"><span class="flag">${x.flag || "🏷️"}</span><div><b>${x.code} · Nr. ${x.num}</b><small>${x.note ? x.note + " · " : ""}${x.name || ""}</small></div></div>
-    <div class="qty"><button onclick="changeDupQty(${x.i},-1)">−</button><strong>${x.qty}</strong><button onclick="changeDupQty(${x.i},1)">+</button></div>
-  </div>`).join("") : `<div class="empty">Noch keine doppelten Sticker erfasst.</div>`;
-}
-
-function checkTrade() {
-  const code = $("tradeCode").value.trim().toUpperCase();
-  const num = $("tradeNum").value.trim();
-  if (!code || !num) return toast("Land und Nummer eingeben");
-  const done = getDone();
-  const found = INITIAL_MISSING.find(x => x.code === code && (x.num === num || x.num === "alle"));
-  let msg = "";
-  if (!found) msg = `❌ ${code} ${num} ist nicht in der Fehlliste.`;
-  else if (done[keyOf(found)]) msg = `✅ ${code} ${num} ist schon erledigt.`;
-  else msg = `🔥 JA! ${code} ${num} fehlt noch. Tauschen!`;
-  $("tradeResult").textContent = msg;
-}
-
-function renderStats() {
-  const done = getDone();
-  const doneCount = INITIAL_MISSING.filter(x => done[keyOf(x)]).length;
-  const total = INITIAL_MISSING.length;
-  const open = total - doneCount;
-  const dups = getDups().reduce((s,x)=>s+Number(x.qty||0),0);
-  $("statOpen").textContent = open;
-  $("statDone").textContent = doneCount;
-  $("statDups").textContent = dups;
-  $("percent").textContent = Math.round(doneCount/total*100) + "%";
-  $("bar").style.width = (doneCount/total*100) + "%";
-}
-
-function buildShareText() {
-  const done = getDone();
-  const open = INITIAL_MISSING.filter(x => !done[keyOf(x)]);
-  const dups = getDups();
-  return "Panini Leonis\n\nNoch fehlend:\n" +
-    (open.map(x => `${x.code} ${x.num === "alle" ? "alle" : x.num}`).join("\n") || "Alles erledigt 🎉") +
-    "\n\nDoppelte:\n" +
-    (dups.length ? dups.map(x => `${x.code} ${x.num} x${x.qty}${x.note ? " ("+x.note+")" : ""}`).join("\n") : "Keine erfasst");
-}
-
-async function shareList() {
-  const text = buildShareText();
-  if (navigator.share) {
-    try { await navigator.share({title:"Panini Leonis", text}); return; } catch(e) {}
-  }
-  await navigator.clipboard.writeText(text);
-  toast("Liste kopiert");
-}
-
-function exportData() {
-  const data = {done:getDone(), dups:getDups(), exportedAt:new Date().toISOString()};
-  const blob = new Blob([JSON.stringify(data,null,2)], {type:"application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url; a.download = "panini-backup.json"; a.click();
-  URL.revokeObjectURL(url);
-}
-
-function importData(ev) {
-  const file = ev.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = () => {
-    try {
-      const data = JSON.parse(reader.result);
-      if (data.done) setDone(data.done);
-      if (data.dups) setDups(data.dups);
-      renderAll();
-      toast("Backup importiert");
-    } catch(e) { toast("Backup ungültig"); }
-  };
-  reader.readAsText(file);
-}
-
-function resetAll() {
-  if (!confirm("Wirklich alles löschen?")) return;
-  localStorage.removeItem(LS_DONE);
-  localStorage.removeItem(LS_DUPS);
-  renderAll();
-}
-
-function applyTheme() {
-  const pref = localStorage.getItem(LS_THEME) || "auto";
-  document.documentElement.dataset.theme = pref;
-  $("themeSelect").value = pref;
-}
-function saveTheme() {
-  localStorage.setItem(LS_THEME, $("themeSelect").value);
-  applyTheme();
-}
-
-function renderAll() {
-  renderStats();
-  renderMissing();
-  renderDups();
-}
-
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
-applyTheme();
-renderAll();
+function renderSettings(){shell(`<div class="panel"><h2>Backup</h2><div class="grid2"><button class="btn" onclick="exportData()">Exportieren</button><label class="btn grey" style="text-align:center">Importieren<input type="file" hidden accept="application/json" onchange="importData(event)"></label><button class="btn red full" onclick="resetAll()">Alles zurücksetzen</button></div></div><p class="note">In Safari: Teilen → Zum Home-Bildschirm. Danach wie eine App starten.</p>`)}
+function shareList(){let d=done(),open=MISSING.filter(x=>!d[key(x)]),text='Panini Leonis\\n\\nFehlt noch:\\n'+(open.map(x=>x.code+' '+x.num).join('\\n')||'Alles erledigt 🎉')+'\\n\\nDoppelte:\\n'+(dups().map(x=>x.code+' '+x.num+' x'+x.qty).join('\\n')||'Keine'); if(navigator.share)navigator.share({title:'Panini Leonis',text});else navigator.clipboard.writeText(text).then(()=>toast('Liste kopiert'))}
+function exportData(){let blob=new Blob([JSON.stringify({done:done(),dups:dups()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='panini-backup.json';a.click();URL.revokeObjectURL(url)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{let x=JSON.parse(r.result);if(x.done)setDone(x.done);if(x.dups)setDups(x.dups);render();toast('Importiert')};r.readAsText(f)}
+function resetAll(){if(confirm('Alles löschen?')){localStorage.removeItem(LS_DONE);localStorage.removeItem(LS_DUP);render()}}
+function render(){({dashboard:renderDashboard,missing:renderMissing,teams:renderTeams,dups:renderDups,trade:renderTrade,settings:renderSettings}[view])()}
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+render();
