@@ -1,7 +1,7 @@
 {
-  "name": "Panini Leonis",
-  "short_name": "Panini",
-  "start_url": "./index.html?v=3",
+  "name": "Panini Pro Leonis",
+  "short_name": "Panini Pro",
+  "start_url": "./index.html?v=4",
   "display": "standalone",
   "background_color": "#f4f7fb",
   "theme_color": "#0f172a",
